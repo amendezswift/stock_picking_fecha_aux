@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_picking_internal_search_inherit_fecha" model="ir.ui.view">
+    <field name="name">stock.picking.search.inherit.fecha</field>
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+    <field name="arch" type="xml">
+
+      <!-- campo auxiliar para filtrar por fecha sin hora -->
+      <xpath expr="//field[@name='picking_type_id']" position="after">
+        <field name="fecha_entrega_date" string="Fecha entrega (día)" filter_domain="[('fecha_entrega_date','=',self)]"/>
+      </xpath>
+
+    </field>
+  </record>
+</odoo>
